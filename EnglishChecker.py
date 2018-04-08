@@ -2,6 +2,34 @@
 
 #===Imports===#
 import enchant
+import threading
+
+
+#===multithreading===#
+def check_word(ct,wl,d):
+	#make edited text a string
+	ciphertext = ct
+	text = str(ciphertext)
+	#set text length
+	textLen = len(text)
+	#set the word length to an integer
+	wordLen = int(wl)
+	#set stringHasText = false
+	stringHasText = False
+
+	while not stringHasText:
+		for startingLetter in range(textLen):
+			for endingLetter in range(wordLen + startingLetter, textLen + 1):
+				if d.check(text[startingLetter:endingLetter]):
+					stringHasText = True
+
+		if stringHasText:
+			print(text)
+		else:
+			break
+
+
+
 
 #===Check if any word in string is English===#
 #d is dictionary
@@ -10,28 +38,15 @@ import enchant
 def check_if_english(d,et,wl):
 	
 
-	#set stringHasText = false
-	stringHasText = False
+
+	threads = []
 	
 	#check for english words throughout entire string
 	for ciphertext in et:
-		
-		#make edited text a string
-		text = str(ciphertext)
-		#set text length
-		textLen = len(text)
-		#set the word length to an integer
-		wordLen = int(wl)
-
-
-		while not stringHasText:
-			for startingLetter in range(textLen):
-				for endingLetter in range(wordLen + startingLetter, textLen + 1):
-					if d.check(text[startingLetter:endingLetter]):
-						stringHasText = True
-
-			if stringHasText:
-				print(text)
+		ct = ciphertext
+		t = threading.Thread( target= check_word, args=(ct, wl,d) )
+		threads.append(t)
+		t.start()
 
 		#stringHasText = False
 
