@@ -7,11 +7,12 @@ from Ciphers import *
 
 #===Define Dictionaries===#
 englishDict = enchant.Dict("en_US")
-
+with open('allciphertext.txt','w') as the_file:
+	pass
 #===Define Variables===#
 
 #input text to decrypt
-uneditedText = "uryybjbeyqvzerarr"
+uneditedText = "uryybjbeyqvzerarrnaqguvfvfzlpelcgpenpxvatcebtenz"
 #output text to find words in
 editedText=  caesar_decrypt(uneditedText)
 #minimum length required to count as a word

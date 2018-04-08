@@ -4,7 +4,6 @@
 import enchant
 import threading
 
-
 #===multithreading===#
 def check_word(ct,wl,d):
 	#make edited text a string
@@ -24,12 +23,11 @@ def check_word(ct,wl,d):
 					stringHasText = True
 
 		if stringHasText:
-			print(text)
+			with open('allciphertext.txt','a') as the_file:
+				the_file.write(text + '\n')
+
 		else:
 			break
-
-
-
 
 #===Check if any word in string is English===#
 #d is dictionary
@@ -43,10 +41,14 @@ def check_if_english(d,et,wl):
 	
 	#check for english words throughout entire string
 	for ciphertext in et:
+
 		ct = ciphertext
-		t = threading.Thread( target= check_word, args=(ct, wl,d) )
+		t = threading.Thread( target= check_word, args=(ct, wl,d))
 		threads.append(t)
 		t.start()
+		t.join()
+			
+		#t.start()
 
 		#stringHasText = False
 
