@@ -31,6 +31,7 @@ def check_if_english(d,et,wl):
 						stringHasText = True
 
 			if stringHasText:
-				print(text)			
-		stringHasText = False
+				print(text)
+
+		#stringHasText = False
 
