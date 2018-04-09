@@ -47,7 +47,22 @@ def caesar_decrypt(ue):
 		decryptedWord = []
 				
 		
-	print(decryptedText)
+	
 	#return list of possible decryptions
 	return(decryptedText)
 
+#atbash decryption
+def atbash_decrypt(ue):
+
+	#make alphabet lists
+	correctAlpha = string.ascii_lowercase()
+	reverseAlpha = string.ascii_lowercase()
+	reverseAlpha.reverse()
+
+	#map alphabet lists to a dictionary
+	alphaDict = dict(zip(correctAlpha,reverseAlpha))
+
+	text = str(ue).lower()
+	text = text.replace(' ', '')
+
+	
