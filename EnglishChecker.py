@@ -23,6 +23,7 @@ def check_word(ct,wl,d):
 					stringHasText = True
 
 		if stringHasText:
+			print(text)
 			with open('allciphertext.txt','a') as the_file:
 				the_file.write(text + '\n')
 

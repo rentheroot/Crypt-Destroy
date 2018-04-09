@@ -12,9 +12,10 @@ with open('allciphertext.txt','w') as the_file:
 #===Define Variables===#
 
 #input text to decrypt
-uneditedText = "uryybjbeyqvzerarrnaqguvfvfzlpelcgpenpxvatcebtenz"
+uneditedText = "bmabmvkwlmlkimaizkqxpmz"
 #output text to find words in
-editedText=  caesar_decrypt(uneditedText)
+caesarResult = caesar_decrypt(uneditedText)
+editedText = affine_decrypt(uneditedText,caesarResult)
 #minimum length required to count as a word
 minWordLen = 4
 
@@ -22,4 +23,7 @@ minWordLen = 4
 #===Functions===#
 
 #check if string has words in English
-check_if_english(englishDict, editedText, minWordLen)
+try:
+	check_if_english(englishDict, editedText, minWordLen)
+except:
+	print("Sorry, no valid English results returned")
