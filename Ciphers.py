@@ -1,6 +1,6 @@
 #imports
 import string
-
+from fractions import gcd
 #===replace letters with numbers===#
 def letter_to_number(text, operation):
 	#set letter to number dict
@@ -23,6 +23,7 @@ def letter_to_number(text, operation):
 
 			#decrypt character by character
 			decryptedCharacter = eval(operation)
+			
 			#lookup calculated number in dictionary
 			decryptedCharacter = numberDict[str(decryptedCharacter)]
 
@@ -35,7 +36,9 @@ def letter_to_number(text, operation):
 		decryptedWord = []
 	
 	#return list of possible decryptions
+	print(decryptedText)
 	return(decryptedText)
+
 
 
 #===Caesar Cipher===#
@@ -85,9 +88,13 @@ def atbash_decrypt(ue):
 #|Algorithm|#
 #D ( x ) = a^-1 ( x - b ) mod m
 #a^-1 = modular multiplicative inverse of a modulo m
-#1 = a a^-1 mod m
-def affine_decrypt(ue,caesarResult):
-	caesarList = caesarResult
-	print(caesarList)
-	for i in caesarResult:
-		decryptedText = letter_to_number(text, '(x-k) % 26')
+#ax = 1 mod m (multiplicative inverse)
+def affine_decrypt(ue):
+
+
+	#set letter to number dict
+	letterDict = {'t': '19', 'z': '25', 'k': '10', 'y': '24', 'u': '20', 'f': '5', 'c': '2', 'p': '15', 'l': '11', 'v': '21', 'g': '6', 'x': '23', 'w': '22', 'b': '1', 'i': '8', 'o': '14', 'j': '9', 'h': '7', 'q': '16', 'd': '3', 'r': '17', 'm': '12', 'e': '4', 'a': '0', 'n': '13', 's': '18'}
+	numberDict = {'15': 'p', '5': 'f', '19': 't', '25': 'z', '21': 'v', '11': 'l', '13': 'n', '12': 'm', '22': 'w', '10': 'k', '4': 'e', '8': 'i', '17': 'r', '1': 'b', '20': 'u', '7': 'h', '3': 'd', '24': 'y', '16': 'q', '0': 'a', '6': 'g', '14': 'o', '2': 'c', '18': 's', '23': 'x', '9': 'j'}
+
+	
+	

@@ -12,10 +12,9 @@ with open('allciphertext.txt','w') as the_file:
 #===Define Variables===#
 
 #input text to decrypt
-uneditedText = "bmabmvkwlmlkimaizkqxpmz"
+uneditedText = "nhogogknmgnkttoxmyolhmz"
 #output text to find words in
-caesarResult = caesar_decrypt(uneditedText)
-editedText = affine_decrypt(uneditedText,caesarResult)
+editedText = affine_decrypt(uneditedText)
 #minimum length required to count as a word
 minWordLen = 4
 
