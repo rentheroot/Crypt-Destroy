@@ -27,8 +27,11 @@ with open('encryptedText.txt', 'r') as the_file:\
 	#input text to decrypt
 	uneditedText = the_file.readlines()
 	for i in uneditedText:
+		with open('allcipherText.txt', 'a') as out_file:
+			out_file.write("line Number: " + str(i))
 		i = i.lower()
 		i = i.replace(' ','')
+		i = i.replace('\n','')
 		#output text to find words in
 
 		print("--------------------------")
