@@ -30,20 +30,36 @@ with open('encryptedText.txt', 'r') as the_file:\
 		i = i.lower()
 		i = i.replace(' ','')
 		#output text to find words in
+
 		print("--------------------------")
 		print("Affine Cipher")
 		print("--------------------------")
-		editedText = affine_decrypt(i)
-		print_results(englishDict, editedText, minWordLen)
+
+		try:
+			editedText = affine_decrypt(i)
+			print_results(englishDict, editedText, minWordLen)
+		except:
+			print("Not compatible with cipher type")
+
+
 		print("--------------------------")
 		print("Caesar Cipher")
 		print("--------------------------")
-		editedText = caesar_decrypt(i)
-		print_results(englishDict, editedText, minWordLen)
+
+		try:
+			editedText = caesar_decrypt(i)
+			print_results(englishDict, editedText, minWordLen)
+		except:
+			print("Not compatible with cipher type")
+
+
 		print("--------------------------")
 		print("Atbash Cipher")
 		print("--------------------------")
-		editedText = atbash_decrypt(i)
-		print_results(englishDict, editedText, minWordLen)
 
+		try:
+			editedText = atbash_decrypt(i)
+			print_results(englishDict, editedText, minWordLen)
+		except:
+			print("Not compatible with cipher type")
 
